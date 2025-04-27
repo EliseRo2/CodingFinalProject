@@ -1,0 +1,14 @@
+/*This file is where all the styling for the webpage will go*/
+
+body {
+    background-color: antiquewhite; /*This is just a test color*/
+}
+
+.interactive {
+    padding: 10px;
+}
+
+h1 {
+    text-transform: capitalize;
+    text-align: center;
+}

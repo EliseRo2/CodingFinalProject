@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Final Project</title>
+    <link rel="stylesheet" href="style.css"> <!--Link to the CSS-->
+
+    <style>
+
+
+    </style>    
+</head>
+
+<body>
+
+    <h1>How Do the Costs of These Prescription Medications in New York Compare to the Manufacturer's List Price?</h1>
+
+    <div class="interactive">
+        How much do you think the manufacturer sells this medication for?: <input type="number" id="listPriceGuess"/>
+        How much do you think customers pay for this medication before insurance?: <input type="number" id="customerPriceGuess"/>
+        
+        <button id="submit" onclick="subtract()">Submit</button>
+    </div>
+
+    <script>
+
+        function subtract(){
+            let listPrice, listPriceGuess, customerPrice, customerPriceGuess, result1, result2;
+
+            listPriceGuess = document.getElementById('listPriceGuess').value;
+            customerPriceGuess = document.getElementById('customerPriceGuess').value;
+
+            listPrice = document.getElementById('listPrice').value;
+            customerPrice = document.getElementById('customerPrice').value;
+
+            result1 = parseInt(listPrice)-parseInt(listPriceGuess);
+            result2 = parseInt(customerPrice)-parseInt(customerPriceGuess);
+            /*These results will be pulled from the dataset. I have to add them once I finalize the data.*/
+
+            document.getElementById('result1').value = result1;
+            document.getElementById('result2').value = result2;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
