@@ -7,44 +7,106 @@
     <title>Coding Final Project</title>
     <link rel="stylesheet" href="style.css"> <!--Link to the CSS-->
 
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Puritan:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> <!--Link to the Google Font-->
 
-
-    </style>    
 </head>
 
 <body>
 
-    <h1>How Do the Costs of These Prescription Medications in New York Compare to the Manufacturer's List Price?</h1>
+    <div class="header">
 
-    <div class="interactive">
-        How much do you think the manufacturer sells this medication for?: <input type="number" id="listPriceGuess"/>
-        How much do you think customers pay for this medication before insurance?: <input type="number" id="customerPriceGuess"/>
-        
-        <button id="submit" onclick="subtract()">Submit</button>
+        <h1>How Much Do Common Prescription Medications Cost in New York?</h1>
+
+        <figure>
+
+            <img src="images/header.jpg" alt="An variety of prescription medications">
+
+            <figcaption> Photo by Pixabay </figcaption>
+
+        </figure>
     </div>
 
-    <script>
+    <div class="instructions">
 
-        function subtract(){
-            let listPrice, listPriceGuess, customerPrice, customerPriceGuess, result1, result2;
+        <p class="information">The cost of prescription medications is a large part of the American Healthcare system. Companies across the world manufacture and sell some of the most commonly prescribed medications used to treat health conditions.</p>
+        
+        <p class="information">However, the true cost of prescription medications can be a complicated topic to understand. The wholesale acquisition cost (WAC) of a prescription medication is defined as the list price set by pharmaceutical manufacturers. It is mainly for wholesalers and other direct purchasers. The wholesale acquisition cost of a particular medication can vary by state.</p>
 
-            listPriceGuess = document.getElementById('listPriceGuess').value;
-            customerPriceGuess = document.getElementById('customerPriceGuess').value;
+        <p class="information">This quiz will help you compare a prescription medication's list price with the average retail price, which is how much customers would be expected to pay without insurance or other discounts.</p>
 
-            listPrice = document.getElementById('listPrice').value;
-            customerPrice = document.getElementById('customerPrice').value;
+        <p class="information">To start, click the green button. The quiz will take you through eight prescription medications and their descriptions. For each medication, enter your guesses for both the list price and the average retail price. Once you have entered both values, click the submit button to see how your guesses comapre to the true prices.</p>
 
-            result1 = parseInt(listPrice)-parseInt(listPriceGuess);
-            result2 = parseInt(customerPrice)-parseInt(customerPriceGuess);
-            /*These results will be pulled from the dataset. I have to add them once I finalize the data.*/
+        <button id="startButton" onclick="start()">Start</button>
 
-            document.getElementById('result1').value = result1;
-            document.getElementById('result2').value = result2;
-        }
+    </div>
+
+    <div class="medsContainer">
+
+        <div class="medications" id="diazepam" style="display: none;">
+            <h4 class="drugName" style="text-decoration: underline;">Diazepam</h4>
+            <p class="manufacturer">Manufacturer: Pfizer Inc.</p>
+            <p class="text">Diazepam is often used to treat conditions like anxiety, seizures, alcohol withdrawal syndrome, and muscles spasms. It is the generic form of the drug Valium. How much is a 5mg/mL dose of Diazepam oral concentrate?</p>
+        </div>
+
+        <div class="medications" id="migergot" style="display: none;">
+            <h4 class="drugName" style="text-decoration: underline;">Migergot</h4>
+            <p class="manufacturer">Manufacturer: Cosette Pharmaceuticals, Inc.</p>
+            <p class="text">Migergot is a brand name prescription suppository used to treat migraines. How much is a 12-pack of 2mg/100mg Migergot prescription?</p>
+        </div>
+
+        <div class="medications" id="silverCream" style="display: none;">
+            <h4 class="drugName" style="text-decoration: underline;">Silver Sulfadiazine Cream</h4>
+            <p class="manufacturer">Manufacturer: Ascend Laboratories, LLC</p>
+            <p class="text">Silver sulfadiazine cream is used to treat or prevent infections in burn wounds. How much is a 50g tube of Silver Sulfadiazine 1% cream?</p>
+        </div>
+
+        <div class="medications" id="palforzia" style="display: none;">
+            <h4 class="drugName" style="text-decoration: underline;">Palforzia</h4>
+            <p class="manufacturer"> Manufacturer: Stallergenes Greer</p>
+            <p class="text">Palforzia is a brand name medication used to reduce the severity of allergic reactions to peanut allergies. How much is a prescription for a 6mg capsule of palforzia?</p>
+        </div>
+
+        <div class="medications" id="estrogen" style="display: none;">
+            <h4 class="drugName" style="text-decoration: underline;">Depo-estradiol</h4>
+            <p class="manufacturer">Manufacturer: Pfizer Inc.</p>
+            <p class="text">Depo-estradiol is a brand name medication prescribed in cases of estrogen replacement. It is also used to treat symptoms of menopause, osteoporosis, and cancer. How much is a prescription for a 5mg/mL vial injection of Depo-estradiol?</p>
+        </div>
+
+        <div class="medications" id="oxycodone" style="display: none;">
+            <h4 class="drugName" style="text-decoration: underline;">Oxycodone APAP</h4>
+            <p class="manufacturer">Manufacturer: SpecGx LLC</p>
+            <p class="text">Oxycodone APAP, also known as oxycodone and acetaminophen, is a combination medication prescribed to treat moderate to severe pain. How much is a prescription for 7.5mg-325mg pack of 100 tablets?</p>
+        </div>
+
+        <div class="medications" id="roxybond" style="display: none;">
+            <h4 class="drugName" style="text-decoration: underline;">RoxyBond</h4>
+            <p class="manufacturer">Manufacturer: Protega Pharmaceuticals</p>
+            <p class="text">RoxyBond is a brand name opioid medication used to treat constant, severe pain. How much is a prescription for a bottle of 100 5mg tablets?</p>
+        </div>
+
+        <div class="medications" id="lorazepam" style="display: none;">
+            <h4 class="drugName" style="text-decoration: underline;">Lorazepam</h4>
+            <p class="manufacturer">Manufacturer: PAI Holdings, LLC</p>
+            <p class="text">Lorazepam is used to treat anxiety disorders. It is the generic form of the drug Ativan. How much is a prescription for a 30mL bottle of 2mg/mL oral concentrate?</p>
+        </div>
 
 
-    </script>
+    </div>
+
+    <div class="inputContainer" style="display: none;">
+        
+        <label for="input1">How much do you think the manufacturer sells this medication for?</label> <input type="number" id="input1" placeholder="Enter Number" required/><br>
+
+        <br>
+        <label for="input2">How much do you think customers are expected to pay for this medication before insurance?</label> <input type="number" id="input2" placeholder="Enter Number" required/>
+        
+        <br>
+        <button id="submit" onclick="calculate()">Submit</button>
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 
