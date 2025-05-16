@@ -58,7 +58,7 @@ const questionContainer = document.getElementById('question-container'); //Gets 
 
 function startQuiz(){ //This function is called when the user clicks the start button
     
-    var meds = document.getElementsByClassName('medications');
+    // var meds = document.getElementsByClassName('medications');
     var instructionSection = document.getElementsByClassName('instructions');
 
     instructionSection[0].style.display = 'none'; //Removes the instructions
@@ -68,10 +68,9 @@ function startQuiz(){ //This function is called when the user clicks the start b
 
 const printMessage = document.getElementById('printMessage'); //Gets the print message element that displays the questions to the user
 let currentQuestionIndex = 0; //Sets the current question to the first medication
-//let userInput1, userInput2;
 
-var userInput1 = document.getElementById('userInput1'); //This is the value of the user's guess for the sale price
-var userInput2 = document.getElementById('userInput2'); //This is the value of the user's guess for the average retail price
+var salePrice = medications[currentQuestionIndex].salePrice;
+var retailPrice = medications[currentQuestionIndex].retailPrice;
 
 const submitButton = document.getElementById('submit'); //Gets the value of the submit button
 
@@ -86,7 +85,7 @@ function readQuestions(){ //This function displays the questions for the user
     }
     else {
 
-        printMessage.innerText = "";
+        printMessage.innerText = "That's all. Thank you for participating in this educational game!";
     }
 }
 
@@ -94,11 +93,12 @@ const resultMessage = document.getElementById('resultMessage'); //This is the me
 
 submitButton.addEventListener('click', calculate); //Adds the click event to the submit button
 
-function calculate(){ //This function should be called when the user clicks the submit button
-    //let salePrice, retailPrice;
+const nextButton = document.getElementById('next');
 
-    var salePrice = document.getElementById('salePrice');
-    var retailPrice = document.getElementById('retailPrice');
+function calculate(){ //This function should be called when the user clicks the submit button
+
+    var userInput1 = document.getElementById('userInput1'); //This is the value of the user's guess for the sale price. Taken from the HTML
+    var userInput2 = document.getElementById('userInput2'); //This is the value of the user's guess for the average retail price. Taken from the HTML
 
     if(userInput1 < salePrice && userInput2 < retailPrice){
 
@@ -118,9 +118,19 @@ function calculate(){ //This function should be called when the user clicks the 
         resultMessage.innerHTML = "Your guess for the wholesale acquisition cost (WAC) is higher than the actual price. The manufacturer sells this medication for $" + medications[currentQuestionIndex].salePrice + '. Your guess for the customer price is also higher than the actual price. The average retail price of this medication is $' + medications[currentQuestionIndex].retailPrice + "."
     }
 
+    nextButton.style.display = 'block';
+
+    // currentQuestionIndex++;
+    // readQuestions();
+
+}
+
+nextButton.addEventListener('click', nextQuestion);
+
+function nextQuestion(){
+
     currentQuestionIndex++;
     readQuestions();
-
 }
 
 readQuestions();

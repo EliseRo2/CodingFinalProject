@@ -38,7 +38,7 @@
 
         <p class="information">To start, click the green button. The quiz will take you through eight prescription medications and their descriptions. For each medication, enter your guesses for both the list price and the average retail price. Once you have entered both values, click the submit button to see how your guesses comapre to the true prices.</p>
 
-        <button id="startButton" onclick="startQuiz()">Start</button>
+        <button id="startButton">Start</button>
 
     </div>
 
@@ -46,15 +46,17 @@
 
         <p id="printMessage"> </p>
         
-        <label for="userInput1">How much do you think the manufacturer sells this medication for?</label> <input type="number" id="userInput1" placeholder="Enter Number" required/><br>
+        <label for="userInput1">How much do you think the manufacturer sells this medication for? $</label> <input type="number" id="userInput1" placeholder="Enter Number" required/><br>
 
         <br>
-        <label for="userInput2">How much do you think customers are expected to pay for this medication before insurance?</label> <input type="number" id="userInput2" placeholder="Enter Number" required/>
+        <label for="userInput2">How much do you think customers are expected to pay for this medication before insurance? $</label> <input type="number" id="userInput2" placeholder="Enter Number" required/>
         
         <br><br>
-        <button id="submit" onclick="calculate()">Submit</button>
+        <button id="submit">Submit</button>
 
         <p id="resultMessage"> </p>
+
+        <button id="next" style="display: none;">Next</button>
      </div> 
 
     <script src="script.js"></script>

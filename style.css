@@ -78,6 +78,15 @@ h1 { /*Styles the headline*/
     font-size: 40px;
 }
 
+#next {
+    margin: 15px auto;
+    padding: 10px;
+    display: block;
+    background-color: tomato;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
 @media (min-width: 801px) and (max-width: 1024px){ /*Desktops and small screens*/
 
     figure {
@@ -117,6 +126,10 @@ h1 { /*Styles the headline*/
     #submit {
         font-size: 13px;
     }
+
+    #next {
+    font-size: 15px;
+}
 
 }
 
@@ -160,6 +173,10 @@ h1 { /*Styles the headline*/
     #submit {
         font-size: 10px;
     }
+
+    #next {
+    font-size: 12px;
+}
     
 }
 
@@ -201,5 +218,9 @@ h1 { /*Styles the headline*/
     #submit {
         font-size: 10px;
     }
+
+    #next {
+    font-size: 12px;
+}
 
 }
