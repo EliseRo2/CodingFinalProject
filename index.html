@@ -36,20 +36,20 @@
 
         <p class="information">This quiz will help you compare a prescription medication's list price with the average retail price, which is how much customers would be expected to pay without insurance or other discounts.</p>
 
-        <p class="information">To start, click the green button. The quiz will take you through eight prescription medications and their descriptions. For each medication, enter your guesses for both the list price and the average retail price. Once you have entered both values, click the submit button to see how your guesses comapre to the true prices.</p>
+        <p class="information">To start, click the green button. The quiz will take you through eight prescription medications and their descriptions. For each medication, enter your guesses for both the list price and the average retail price. You can enter your guesses as either a whole number or a decimal, and they can range anywhere between $1 and $3,000. Once you have entered both values, click the submit button to see how your guesses comapre to the true prices.</p>
 
         <button id="startButton">Start</button>
 
     </div>
 
-     <div id="question-container" style="display: none;">
+    <div id="question-container" style="display: none;">
 
         <p id="printMessage"> </p>
         
-        <label for="userInput1">How much do you think the manufacturer sells this medication for? $</label> <input type="number" id="userInput1" placeholder="Enter Number" required/><br>
+        <label for="userInput1">How much do you think the manufacturer sells this medication for? $</label> <input type="number" id="userInput1" placeholder="Enter Number" step="0.01" required/><br>
 
         <br>
-        <label for="userInput2">How much do you think customers are expected to pay for this medication before insurance? $</label> <input type="number" id="userInput2" placeholder="Enter Number" required/>
+        <label for="userInput2">How much do you think customers are expected to pay for this medication before insurance? $</label> <input type="number" id="userInput2" placeholder="Enter Number" step="0.01" required/>
         
         <br><br>
         <button id="submit">Submit</button>
@@ -57,7 +57,19 @@
         <p id="resultMessage"> </p>
 
         <button id="next" style="display: none;">Next</button>
-     </div> 
+    </div> 
+
+    <div id="end-container" style="display: none">
+
+        <p id="endMessage"> </p>
+
+    </div>
+
+    <footer>
+       
+        <p>Developed by: Elise Robley | Sources: New York State Department of Financial Services; GoodRx</p>
+
+    </footer>
 
     <script src="script.js"></script>
 
